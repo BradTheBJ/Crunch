@@ -1,0 +1,54 @@
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+*.cmake
+
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Compiled static libraries
+*.a
+*.lib
+*.lai
+*.la
+
+# Compiled dynamic libraries
+*.so
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.pdb
+*.dwo
+
+# Fortran module files
+*.mod
+*.smod
+
+# VS/IDE folders
+.vscode/
+.idea/
+*.VC.db
+*.VC.opendb
+*.user
+*.sln
+*.vcxproj*
+
+# Other
+run.sh
+
