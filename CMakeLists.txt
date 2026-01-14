@@ -16,23 +16,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Crunch)
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/core/*.cpp src/*.cpp)
 
-target_sources(Crunch
-  PRIVATE
-    src/core/window.cpp
-)
+add_executable(Crunch ${SOURCES})
 
-target_include_directories(Crunch
-  PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
-)
+target_include_directories(Crunch PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(Crunch
-  PRIVATE
-    SFML::Graphics
-    SFML::Window
-    SFML::System
-    SFML::Audio
-)
+target_link_libraries(Crunch PRIVATE SFML::Graphics SFML::Window SFML::System SFML::Audio)
 
