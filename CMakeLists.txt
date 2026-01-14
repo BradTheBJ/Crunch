@@ -8,6 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(FetchContent)
 
+
 FetchContent_Declare(
   SFML
   GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -22,5 +23,5 @@ add_executable(Crunch ${SOURCES})
 
 target_include_directories(Crunch PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(Crunch PRIVATE SFML::Graphics SFML::Window SFML::System SFML::Audio)
+target_link_libraries(Crunch PRIVATE sfml-graphics sfml-window sfml-system sfml-audio)
 

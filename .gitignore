@@ -49,6 +49,4 @@ build/
 *.sln
 *.vcxproj*
 
-# Other
-run.sh
 

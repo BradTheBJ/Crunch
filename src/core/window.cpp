@@ -1,4 +1,5 @@
 #include "../../include/core/window.hpp"
+#include "../../include/core/grid.hpp"
 
 Window::Window(const std::string &title, bool vsync)
     : title(title), vsync(vsync) {
@@ -9,6 +10,7 @@ Window::Window(const std::string &title, bool vsync)
 }
 
 void Window::display() {
+  Grid grid(20, 20, 64, 64, 1);
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -17,6 +19,7 @@ void Window::display() {
       }
     }
     window.clear(sf::Color::Black);
+    grid.update(window);
     window.display();
   }
 }
