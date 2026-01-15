@@ -11,10 +11,10 @@ Window::Window(const std::string &title, bool vsync)
 }
 
 void Window::display() {
+  GridVars gridVars;
+  Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
+            gridVars.tileSizeY, gridVars.gap);
   while (window.isOpen()) {
-    GridVars gridVars;
-    Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
-              gridVars.tileSizeY, gridVars.gap);
     sf::Event event;
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
@@ -23,6 +23,7 @@ void Window::display() {
     }
     window.clear(sf::Color::Black);
     grid.update(window);
+    grid.draw(window);
     window.display();
   }
 }

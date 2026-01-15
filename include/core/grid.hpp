@@ -9,6 +9,7 @@ public:
 
   void update(sf::RenderWindow &window);
   void setTexture(sf::RenderWindow &window);
+  void draw(sf::RenderWindow &window);
 
 private:
   unsigned int ColWidth;
@@ -16,4 +17,6 @@ private:
   unsigned int gap;
   sf::RectangleShape tile;
   std::vector<sf::RectangleShape> tiles;
+  std::vector<sf::Color> tileColors;
+  bool wasPressed;
 };
