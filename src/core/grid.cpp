@@ -17,8 +17,23 @@ Grid::Grid(unsigned int colWidth, unsigned int colHeight,
     }
   }
 }
+// This is only temporary code
+void Grid::setTexture(sf::RenderWindow &window) {
+  sf::Vector2f mousePos =
+      window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+  for (auto &t : tiles) {
+    if (t.getGlobalBounds().contains(mousePos) &&
+        sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+      t.setFillColor(sf::Color::Red);
+    } else {
+      t.setFillColor(sf::Color::White);
+    }
+  }
+}
 
 void Grid::update(sf::RenderWindow &window) {
+  setTexture(window);
   for (auto &t : tiles) {
     window.draw(t);
   }

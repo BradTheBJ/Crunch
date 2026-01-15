@@ -8,6 +8,7 @@ public:
        unsigned int tileSizeY, double gap);
 
   void update(sf::RenderWindow &window);
+  void setTexture(sf::RenderWindow &window);
 
 private:
   unsigned int ColWidth;
