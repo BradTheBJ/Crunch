@@ -1,5 +1,6 @@
 #include "../../include/core/window.hpp"
 #include "../../include/core/grid.hpp"
+#include "../../include/definitions/gridvars.hpp"
 
 Window::Window(const std::string &title, bool vsync)
     : title(title), vsync(vsync) {
@@ -10,8 +11,10 @@ Window::Window(const std::string &title, bool vsync)
 }
 
 void Window::display() {
-  Grid grid(20, 20, 64, 64, 1);
   while (window.isOpen()) {
+    GridVars gridVars;
+    Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
+              gridVars.tileSizeY, gridVars.gap);
     sf::Event event;
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
