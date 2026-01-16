@@ -8,7 +8,7 @@ class Sidebar {
 public:
   using Content = std::variant<sf::Color, std::string>;
 
-  Sidebar(unsigned int width, unsigned int height, sf::Color color,
+  Sidebar(unsigned int width, unsigned int height, sf::Vector2f pos, sf::Color color,
           unsigned int boxWidth, unsigned int boxHeight, const Content &content);
 
   void update(sf::RenderWindow &window);
@@ -17,9 +17,10 @@ public:
 private:
   unsigned int m_width;
   unsigned int m_height;
+  sf::Color m_color;
+  sf::Vector2f m_pos;
   unsigned int m_boxWidth;
   unsigned int m_boxHeight;
   Content m_content;
   sf::RectangleShape m_sidebar;
-  sf::Color m_color;
 };
