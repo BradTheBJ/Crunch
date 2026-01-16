@@ -3,10 +3,10 @@
 #include "../../include/definitions/gridvars.hpp"
 
 Window::Window(const std::string &title, bool vsync)
-    : title(title), vsync(vsync) {
-  window.create(sf::VideoMode::getDesktopMode(), title);
-  if (vsync) {
-    window.setVerticalSyncEnabled(true);
+    : m_title(title), m_vsync(vsync) {
+  m_window.create(sf::VideoMode::getDesktopMode(), m_title);
+  if (m_vsync) {
+    m_window.setVerticalSyncEnabled(true);
   }
 }
 
@@ -14,16 +14,16 @@ void Window::display() {
   GridVars gridVars;
   Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
             gridVars.tileSizeY, gridVars.gap);
-  while (window.isOpen()) {
+  while (m_window.isOpen()) {
     sf::Event event;
-    while (window.pollEvent(event)) {
+    while (m_window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
-        window.close();
+        m_window.close();
       }
     }
-    window.clear(sf::Color::Black);
-    grid.update(window);
-    grid.draw(window);
-    window.display();
+    m_window.clear(sf::Color::Black);
+    grid.update(m_window);
+    grid.draw(m_window);
+    m_window.display();
   }
 }

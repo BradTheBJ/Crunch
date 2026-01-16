@@ -9,7 +9,7 @@ public:
   void display();
 
 private:
-  std::string title;
-  bool vsync;
-  sf::RenderWindow window;
+  std::string m_title;
+  bool m_vsync;
+  sf::RenderWindow m_window;
 };

@@ -8,10 +8,10 @@ struct Mouse {
     using MouseContent = std::variant<sf::Color, std::string>;
 
     Mouse(const sf::Color& color)
-        : mouseContent(color) {}
+        : m_mouseContent(color) {}
 
     Mouse(const std::string& spriteFilepath)
-        : mouseContent(spriteFilepath) {}
+        : m_mouseContent(spriteFilepath) {}
 
     sf::Vector2f mousePos(sf::RenderWindow& window) const {
         return window.mapPixelToCoords(sf::Mouse::getPosition(window));
@@ -40,17 +40,17 @@ struct Mouse {
     }
 
     void setColor(const sf::Color& color) {
-        mouseContent = color;
+        m_mouseContent = color;
     }
 
     void setSprite(const std::string& spriteFilepath) {
-        mouseContent = spriteFilepath;
+        m_mouseContent = spriteFilepath;
     }
 
     const MouseContent& getContent() const {
-        return mouseContent;
+        return m_mouseContent;
     }
 
 private:
-    MouseContent mouseContent;
+    MouseContent m_mouseContent;
 };

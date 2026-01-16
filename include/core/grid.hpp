@@ -12,11 +12,11 @@ public:
   void draw(sf::RenderWindow &window);
 
 private:
-  unsigned int ColWidth;
-  unsigned int ColHeight;
-  unsigned int gap;
-  sf::RectangleShape tile;
-  std::vector<sf::RectangleShape> tiles;
-  std::vector<sf::Color> tileColors;
-  bool wasPressed;
+  unsigned int m_ColWidth;
+  unsigned int m_ColHeight;
+  unsigned int m_gap;
+  sf::RectangleShape m_tile;
+  std::vector<sf::RectangleShape> m_tiles;
+  std::vector<sf::Color> m_tileColors;
+  bool m_wasPressed;
 };
