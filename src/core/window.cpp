@@ -1,5 +1,6 @@
 #include "../../include/core/window.hpp"
 #include "../../include/core/grid.hpp"
+#include "../../include/core/sidebar.hpp"
 #include "../../include/definitions/gridvars.hpp"
 
 Window::Window(const std::string &title, bool vsync)
@@ -12,6 +13,7 @@ Window::Window(const std::string &title, bool vsync)
 
 void Window::display() {
   GridVars gridVars;
+  Sidebar sidebar(500, 500, sf::Color::Black, 50, 50, sf::Color::Blue);
   Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
             gridVars.tileSizeY, gridVars.gap);
   while (m_window.isOpen()) {
@@ -24,6 +26,8 @@ void Window::display() {
     m_window.clear(sf::Color::Black);
     grid.update(m_window);
     grid.draw(m_window);
+    sidebar.draw(m_window);
+    sidebar.update(m_window);
     m_window.display();
   }
 }

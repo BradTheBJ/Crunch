@@ -22,6 +22,7 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/core/*.cpp src/*.cpp)
 add_executable(Crunch ${SOURCES})
 
 target_include_directories(Crunch PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(Crunch PRIVATE ${CMAKE_BINARY_DIR}/_deps/sfml-src/include)
 
 target_link_libraries(Crunch PRIVATE sfml-graphics sfml-window sfml-system sfml-audio)
 
