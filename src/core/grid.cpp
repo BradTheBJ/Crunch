@@ -1,4 +1,5 @@
 #include "../../include/core/grid.hpp"
+#include "../../include/core/mouse.hpp"
 
 Grid::Grid(unsigned int colWidth, unsigned int colHeight,
            unsigned int tileSizeX, unsigned int tileSizeY, double gap)
@@ -19,21 +20,13 @@ Grid::Grid(unsigned int colWidth, unsigned int colHeight,
 }
 // This is only temporary code
 void Grid::setTexture(sf::RenderWindow &window) {
-  sf::Vector2f mousePos =
-      window.mapPixelToCoords(sf::Mouse::getPosition(window));
-
   bool isPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-
+  Mouse mouse(sf::Color::Magenta);
+  
   for (size_t i = 0; i < tiles.size(); ++i) {
-    if (tiles[i].getGlobalBounds().contains(mousePos) && isPressed && !wasPressed) {
-      // Toggle color on click
-      if (tileColors[i] == sf::Color::White) {
-        tileColors[i] = sf::Color::Red;
-      } else {
-        tileColors[i] = sf::Color::White;
-      }
+    if (tiles[i].getGlobalBounds().contains(mouse.mousePos(window)) && isPressed && !wasPressed) {
+      tiles[i].setFillColor(std::get<sf::Color>(mouse.getContent()));
     }
-    tiles[i].setFillColor(tileColors[i]);
   }
 
   wasPressed = isPressed;
