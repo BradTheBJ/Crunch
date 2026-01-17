@@ -1,8 +1,9 @@
 #include "../../include/core/window.hpp"
+#include "../../include/definitions/gridvars.hpp"
 #include <string>
 
-int main(int argc, char **argv) {
-  std::string title = "Crunch";
-  Window window(title, true);
+int main() {
+  GridVars gridVars;
+  Window window(gridVars.title, true);
   window.display();
 }

@@ -13,7 +13,7 @@ Window::Window(const std::string &title, bool vsync)
 
 void Window::display() {
   GridVars gridVars;
-  Sidebar sidebar(500, 500, sf::Vector2f(1000, 500), sf::Color::Blue, 50, 50, sf::Color::Blue);
+  Sidebar sidebar(200, 600, sf::Color::Blue, 180, 50, sf::Color::Red);
   Grid grid(gridVars.colWidth, gridVars.colHeight, gridVars.tileSizeX,
             gridVars.tileSizeY, gridVars.gap);
   while (m_window.isOpen()) {
