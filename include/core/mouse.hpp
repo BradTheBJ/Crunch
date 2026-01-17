@@ -1,5 +1,6 @@
 #pragma once
-
+#include "grid.hpp"
+#include "sidebar.hpp"
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <variant>
@@ -45,6 +46,13 @@ struct Mouse {
 
   const MouseContent &getContent() const { return m_mouseContent; }
 
+  enum class HoverState { NONE, GRID, SIDEBAR };
+  HoverState checkHover(Grid &grid, Sidebar &sidebar, sf::RenderWindow &window);
+  void update(Grid &grid, Sidebar &sidebar, sf::RenderWindow &window);
+
+  const HoverState &getHoverState() const { return m_hoverState; }
+
 private:
   MouseContent m_mouseContent;
+  HoverState m_hoverState = HoverState::NONE;
 };
