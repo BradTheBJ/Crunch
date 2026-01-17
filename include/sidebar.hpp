@@ -15,15 +15,15 @@ public:
   void update(sf::RenderWindow &window);
   void draw(sf::RenderWindow &window);
 
-  const sf::RectangleShape &getSidebar() const { return m_sidebar; }
-  sf::RectangleShape m_sidebar;
+  const sf::RectangleShape &getSidebar() const { return sidebarRect; }
+  sf::RectangleShape sidebarRect;
 
 private:
-  unsigned int width;
-  unsigned int height;
-  sf::Vector2f pos;
-  sf::Color color;
-  unsigned int boxWidth;
-  unsigned int boxHeight;
-  Content content;
+  unsigned int m_width;
+  unsigned int m_height;
+  sf::Vector2f m_pos;
+  sf::Color m_color;
+  unsigned int m_boxWidth;
+  unsigned int m_boxHeight;
+  Content m_content;
 };

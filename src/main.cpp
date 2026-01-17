@@ -1,5 +1,5 @@
-#include "../../include/core/window.hpp"
-#include "../../include/definitions/gridvars.hpp"
+#include "../include/window.hpp"
+#include "../include/definitions/gridvars.hpp"
 #include <string>
 
 int main() {

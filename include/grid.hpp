@@ -17,10 +17,10 @@ public:
   std::vector<sf::RectangleShape> tiles;
 
 private:
-  unsigned int ColWidth;
-  unsigned int ColHeight;
-  double gap;
-  sf::RectangleShape tile;
-  std::vector<sf::Color> tileColors;
-  bool wasPressed;
+  unsigned int m_colWidth;
+  unsigned int m_colHeight;
+  double m_gap;
+  sf::RectangleShape m_tile;
+  std::vector<sf::Color> m_tileColors;
+  bool m_wasPressed;
 };

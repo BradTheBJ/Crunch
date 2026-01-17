@@ -1,12 +1,8 @@
-#include "../../include/core/mouse.hpp"
-
-void Mouse::update(Grid &grid, Sidebar &sidebar, sf::RenderWindow &window) {
-  m_hoverState = checkHover(grid, sidebar, window);
-}
+#include "../../include/mouse.hpp"
 
 Mouse::HoverState Mouse::checkHover(Grid &grid, Sidebar &sidebar,
                                     sf::RenderWindow &window) {
-  if (sidebar.m_sidebar.getGlobalBounds().contains(
+  if (sidebar.sidebarRect.getGlobalBounds().contains(
           mousePos(window))) { // This must be above all other checks so that
                                // sidebar takes priority
     return HoverState::SIDEBAR;

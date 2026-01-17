@@ -1,17 +1,9 @@
-#include "../../include/core/window.hpp"
-#include "../../include/core/grid.hpp"
-#include "../../include/core/mouse.hpp"
-#include "../../include/core/sidebar.hpp"
+#include "../../include/window.hpp"
+#include "../../include/grid.hpp"
+#include "../../include/mouse.hpp"
+#include "../../include/sidebar.hpp"
 #include "../../include/definitions/gridvars.hpp"
 #include "../../include/definitions/sidebarvars.hpp"
-
-Window::Window(const std::string &title, bool vsync)
-    : m_title(title), m_vsync(vsync) {
-  m_window.create(sf::VideoMode::getDesktopMode(), m_title);
-  if (m_vsync) {
-    m_window.setVerticalSyncEnabled(true);
-  }
-}
 
 void Window::display() {
   Mouse mouse(sf::Color::Red);
