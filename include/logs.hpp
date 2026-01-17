@@ -1,11 +1,15 @@
 #pragma once
-#include <print>
-#include <array>
+
+#include <string>
+#include <vector>
+#include <SFML/Graphics.hpp>
 
 class Logs {
-    public:
-      Logs(unsigned int size) : m_size(size) {};
-      void log(std::array<std::string, m_size> messages);
-    private:
-      unsigned int m_size;
-}
+public:
+  virtual ~Logs() = default;
+
+  virtual void setMessages(std::vector<std::string>& messages) = 0;
+
+  virtual void displayLogs(const std::vector<std::string>& messages,
+                           sf::RenderWindow& window) = 0;
+};
