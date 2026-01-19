@@ -1,4 +1,5 @@
 #include "../../include/logs/mouseLogs.hpp"
+#include "../../include/helpers/mouseHoverToString.hpp"
 #include "../../include/helpers/mouseContentToString.hpp"
 #include <iostream>
 
@@ -7,7 +8,7 @@ MouseLogs::MouseLogs() : Logs() {}
 void MouseLogs::setMessages(std::vector<std::string>& messages) {
   messages.push_back("Mouse position:");
   messages.push_back("Mouse content:");
-  //messages.push_back("Mouse is hovering over:");
+  messages.push_back("Mouse is hovering over:");
 }
 
 void MouseLogs::displayLogs(const std::vector<std::string>& messages,
@@ -22,5 +23,6 @@ void MouseLogs::displayLogs(const std::vector<std::string>& messages,
 
   std::cout << messages[1]
             << " " << contentToString(mouse.getContent()) << '\n';
+  std::cout << messages[2] << hoverToString(mouse) << "\n";
 }
 
